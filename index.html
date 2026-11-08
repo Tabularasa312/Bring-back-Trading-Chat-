@@ -160,6 +160,7 @@ main {
     border-radius: 9px;
     font-weight: 700;
     font-size: 16px;
+    text-decoration: none;
     border: none;
     cursor: pointer;
     transition: 0.2s;
@@ -231,6 +232,7 @@ footer {
         <h2>
             Bring Back the <span>Trading Chat!</span>
         </h2>
+
         <p>
             A petition calling for the return of the public
             trading chat in Knight Manager.
@@ -309,23 +311,19 @@ footer {
             make our request heard.
         </p>
 
-        <button
+        <a
             class="button"
-            id="shareButton"
-            type="button">
-            Share This Petition
-        </button>
+            href="https://c.org/SdP8Jkwzbv"
+            target="_blank"
+            rel="noopener noreferrer">
+            Sign the Petition
+        </a>
     </section>
 
     <div class="notice">
         This is an independent initiative created by
         players. It is not officially affiliated with
         Knight Manager or its developers.
-
-        <br><br>
-
-        This website does not currently collect
-        signatures.
     </div>
 
 </main>
@@ -334,37 +332,6 @@ footer {
     <p>An initiative by the Knight Manager community</p>
     <p>For Trading. For Communication. For Community.</p>
 </footer>
-
-<script>
-const shareButton = document.getElementById("shareButton");
-
-shareButton.addEventListener("click", async () => {
-
-    const shareData = {
-        title: "Bring Back the Trading Chat!",
-        text: "Support the return of the public trading chat in Knight Manager!",
-        url: window.location.href
-    };
-
-    try {
-        if (navigator.share) {
-            await navigator.share(shareData);
-        } else if (navigator.clipboard &&
-                   window.isSecureContext) {
-            await navigator.clipboard.writeText(
-                shareData.text + " " + shareData.url
-            );
-            alert("Petition link copied!");
-        } else {
-            prompt("Copy this petition link:", window.location.href);
-        }
-    } catch (error) {
-        if (error.name !== "AbortError") {
-            alert("Sharing was unsuccessful. Please copy the website link manually.");
-        }
-    }
-});
-</script>
 
 </body>
 </html>
